@@ -13,7 +13,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'templates.main.index');
+Route::view('/', 'templates.main.index')->name('home'); //Главная
 
+Route::view('contacts', 'templates.contacts.index')->name('contacts'); //Контакты
 
-Route::view('contacts', 'templates.contacts.index');
+Route::name('user.')->group(function(){
+    Route::view('/private', 'private')->middleware('auth')->name('private'); //Личный кабинет
+
+    Route::get('/login', function(){
+        if(Auth::check()){
+            return redirect(route('user.private'));
+        } 
+        return view('templates.login.index');
+    })->name('login'); // Вход в личный кабинет
+
+    // Route::post('/login', [])
+
+    // Route::get('/logout', [])->name('logout');
+
+    Route::get('/registration', function(){
+        if(Auth::chek()){
+            return redirect(route('user.private'));
+        } 
+        return view('registration');
+    })->name('registration');
+
+    // Route::post('/registration', []);
+});

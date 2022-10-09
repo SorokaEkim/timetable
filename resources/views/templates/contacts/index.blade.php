@@ -3,5 +3,7 @@
 @section('page.title', 'Контакты')
 
 @section('content')
-    <h1>Контакты</h1>
+    <div class="container mx-auto">
+        <h1>Контакты</h1>
+    </div>
 @endsection

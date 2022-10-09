@@ -2,12 +2,12 @@
     <div class="border py-4">
         <div class="container mx-auto">
             <div class="flex justify-between items-center">
-                <div>
-                    <a href="">{{ config('app.name')}}</a>
+                <div class="font-bold text-2xl">
+                    <a href="{{ route('home') }}">{{ config('app.name')}}</a>
                 </div>
                 <div>
-                    <ul>
-                        <li><a href="">Контакты</a></li>
+                    <ul class="font-semibold text-xl">
+                        <li><a href="{{ route('contacts') }}">Контакты</a></li>
                     </ul>
                 </div>
             </div>
