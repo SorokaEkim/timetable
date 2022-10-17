@@ -12,5 +12,6 @@
 
         @include('includes.footer')
     </div>
+    @livewireScripts
 </body>
 </html>
